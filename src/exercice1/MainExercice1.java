@@ -10,20 +10,22 @@ public class MainExercice1 {
 
     // Format du fichier : firstName,lastName,birthDate,gender,cityOfResidence,cityOfBirth
     // Pas de header
-    public static List<Person> parse(List<String> data) {
+    public List<Person> parse(List<String> data) {
         // A COMPLETER
+        ArrayList<Person> list = new ArrayList<Person>();
         for(String person : data){
             String[] pers = person.split(",");
-            System.out.println(pers);
-
+            Person result = new Person(pers[0],pers[1],pers[2],pers[3],pers[4],pers[5]);
+            list.add(result);
         }
-        return new ArrayList<Person>();
+        return list;
     }
 
     public static void main(String[] args) {
         System.out.println("test");
         List<String> data = TxtHelper.getDataFromTxt("persons.txt");
-        List<Person> list_person = MainExercice1.parse(data);
+        MainExercice1 exo1 = new MainExercice1();
+        List<Person> list_person = exo1.parse(data);
         // EXO 1
         /*
          * - Récuperez la liste des personnes sous la forme -> firstName,lastName,birthDate,gender,cityOfResidence,cityOfBirth
